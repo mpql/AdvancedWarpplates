@@ -15,7 +15,7 @@ namespace AdvancedWarpplates
         public Timer QuickUpdate = new Timer(1000);
         public Commands Commands;
 
-        private DateTime LastCheck = DateTime.UtcNow;
+        private readonly DateTime LastCheck = DateTime.UtcNow;
 
         public override string Name
         {

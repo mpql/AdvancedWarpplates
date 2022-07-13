@@ -8,8 +8,8 @@ namespace AdvancedWarpplates
     /// </summary>
     public class PacketFactory
     {
-        private MemoryStream memoryStream;
-        private BinaryWriter writer;
+        private readonly MemoryStream memoryStream;
+        private readonly BinaryWriter writer;
         public PacketFactory()
         {
             memoryStream = new MemoryStream();

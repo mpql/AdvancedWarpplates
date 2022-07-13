@@ -12,8 +12,8 @@ namespace AdvancedWarpplates
     /// </summary>
     public class Commands
     {
-        private WarpplateManager Manager;
-        private Player[] Players;
+        private readonly WarpplateManager Manager;
+        private readonly Player[] Players;
 
         public Commands(WarpplateManager manager, Player[] players)
         {
@@ -102,11 +102,10 @@ namespace AdvancedWarpplates
                 case "help":
                 default:
                     {
-                        int pageNumber = 1;
                         int pageParamIndex = 0;
                         if (args.Parameters.Count > 1)
                             pageParamIndex = 1;
-                        if (!PaginationTools.TryParsePageNumber(args.Parameters, pageParamIndex, args.Player, out pageNumber))
+                        if (!PaginationTools.TryParsePageNumber(args.Parameters, pageParamIndex, args.Player, out int pageNumber))
                             return;
 
                         List<String> lines = new List<String>{
@@ -149,7 +148,7 @@ namespace AdvancedWarpplates
         public async void SetWarpplateDelay(CommandArgs args)
         {
             // Use the given warpplate name or find the warpplate they are standing in
-            string region = "";
+            string region;
             if (args.Parameters.Count == 3)
                 region = args.Parameters[1];
             else if (args.Parameters.Count == 2)
@@ -170,8 +169,7 @@ namespace AdvancedWarpplates
             }
 
             // Update the delay of the given warpplate
-            int Delay;
-            if (int.TryParse(args.Parameters[args.Parameters.Count - 1], out Delay))
+            if (int.TryParse(args.Parameters[args.Parameters.Count - 1], out int Delay))
             {
                 warpplate.Delay = Delay + 1;
                 if (await Manager.UpdateWarpplate(warpplate.Name))
@@ -189,7 +187,7 @@ namespace AdvancedWarpplates
         /// <param name="args">The command arguments</param>
         public async void SetWarpplateWidth(CommandArgs args)
         {
-            string region = "";
+            string region;
             if (args.Parameters.Count == 3)
                 region = args.Parameters[1];
             else if (args.Parameters.Count == 2)
@@ -207,8 +205,7 @@ namespace AdvancedWarpplates
                 return;
             }
 
-            int Width;
-            if (Int32.TryParse(args.Parameters[args.Parameters.Count - 1], out Width))
+            if (Int32.TryParse(args.Parameters[args.Parameters.Count - 1], out int Width))
             {
                 Rectangle r;
                 r = warpplate.Area;
@@ -229,7 +226,7 @@ namespace AdvancedWarpplates
         /// <param name="args">The command arguments</param>
         public async void SetWarpplateLabel(CommandArgs args)
         {
-            string region = "";
+            string region;
             if (args.Parameters.Count == 3)
                 region = args.Parameters[1];
             else if (args.Parameters.Count == 2)
@@ -260,7 +257,7 @@ namespace AdvancedWarpplates
         /// <param name="args">The command arguments</param>
         public async void SetWarpplateDimension(CommandArgs args)
         {
-            string region = "";
+            string region;
             if (args.Parameters.Count == 3)
                 region = args.Parameters[1];
             else if (args.Parameters.Count == 2)
@@ -317,7 +314,7 @@ namespace AdvancedWarpplates
         /// <param name="args">The command arguments</param>
         public async void SetWarpplateHeight(CommandArgs args)
         {
-            string region = "";
+            string region;
             if (args.Parameters.Count == 3)
                 region = args.Parameters[1];
             else if (args.Parameters.Count == 2)
@@ -335,8 +332,7 @@ namespace AdvancedWarpplates
                 return;
             }
 
-            int Height;
-            if (Int32.TryParse(args.Parameters[args.Parameters.Count - 1], out Height))
+            if (Int32.TryParse(args.Parameters[args.Parameters.Count - 1], out int Height))
             {
                 Rectangle area;
                 area = warpplate.Area;
@@ -366,7 +362,7 @@ namespace AdvancedWarpplates
         /// <param name="args">The command arguments</param>
         public async void SetWarpplateSize(CommandArgs args)
         {
-            string region = "";
+            string region;
             if (args.Parameters.Count == 4)
                 region = args.Parameters[1];
             else if (args.Parameters.Count == 3)
@@ -384,9 +380,8 @@ namespace AdvancedWarpplates
                 return;
             }
 
-            int Width, Height;
-            if (Int32.TryParse(args.Parameters[args.Parameters.Count - 2], out Width) &&
-                Int32.TryParse(args.Parameters[args.Parameters.Count - 1], out Height))
+            if (Int32.TryParse(args.Parameters[args.Parameters.Count - 2], out int Width) &&
+                Int32.TryParse(args.Parameters[args.Parameters.Count - 1], out int Height))
             {
                 Rectangle area;
                 area = warpplate.Area;
@@ -504,7 +499,7 @@ namespace AdvancedWarpplates
 
         public void WarpplateInformation(CommandArgs args)
         {
-            string warpplateName = "";
+            string warpplateName;
             if (args.Parameters.Count > 1)
             {
                 warpplateName = string.Join(" ", args.Parameters.Skip(1));
@@ -530,8 +525,7 @@ namespace AdvancedWarpplates
 
         public void ListWarpplates(CommandArgs args)
         {
-            int pageNumber;
-            if (!PaginationTools.TryParsePageNumber(args.Parameters, 1, args.Player, out pageNumber))
+            if (!PaginationTools.TryParsePageNumber(args.Parameters, 1, args.Player, out int pageNumber))
                 return;
 
             var wpNames = Manager.ListAllWarpplates();

@@ -19,7 +19,7 @@ namespace AdvancedWarpplates
         public int Delay { get; set; }
         public string Label
         {
-            get { return _label == null ? Name : _label; }
+            get { return _label ?? Name; }
             set { _label = value; }
         }
 
@@ -69,7 +69,7 @@ namespace AdvancedWarpplates
         /// <returns>Destination name or default</returns>
         public string GetDestinationOrDefault()
         {
-            return Destination == null ? "(none)" : Destination;
+            return Destination ?? "(none)";
         }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace AdvancedWarpplates
         /// <returns>Label or default label</returns>
         public string GetLabelOrDefault()
         {
-            return _label == null ? Name + " (default)" : _label;
+            return _label ?? Name + " (default)";
         }
     }
 }

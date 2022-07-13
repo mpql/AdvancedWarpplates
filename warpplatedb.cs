@@ -14,8 +14,8 @@ namespace AdvancedWarpplates
 {
     public class WarpplateDB
     {
-        private IDbConnection database;
-        private object syncLock = new object();
+        private readonly IDbConnection database;
+        private readonly object syncLock = new object();
 
         public WarpplateDB(IDbConnection db)
         {
@@ -121,16 +121,16 @@ namespace AdvancedWarpplates
 
                         string[] splitids = mergedids.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
-                        Warpplate r = new Warpplate(new Vector2(X1, Y1), new Rectangle(X1, Y1, width, height), name, warpdest, Protected != 0, Main.worldID.ToString(), label, type);
-                        r.Delay = Delay;
+                        Warpplate r = new Warpplate(new Vector2(X1, Y1), new Rectangle(X1, Y1, width, height), name, warpdest, Protected != 0, Main.worldID.ToString(), label, type)
+                        {
+                            Delay = Delay
+                        };
 
                         try
                         {
                             for (int i = 0; i < splitids.Length; i++)
                             {
-                                int id;
-
-                                if (Int32.TryParse(splitids[i], out id)) // if unparsable, it's not an int, so silently skip
+                                if (Int32.TryParse(splitids[i], out int id)) // if unparsable, it's not an int, so silently skip
                                     r.AllowedIDs.Add(id);
                                 else
                                     TShock.Log.Warn("One of your UserIDs is not a usable integer: " + splitids[i]);

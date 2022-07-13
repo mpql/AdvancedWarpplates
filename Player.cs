@@ -13,7 +13,7 @@ namespace AdvancedWarpplates
         public bool CanUseWarpplates { get; set; }
         public bool HasJustUsedWarpplate { get; set; }
         public int WarpplateUseCooldown { get; set; }
-        private WarpplateManager Manager;
+        private readonly WarpplateManager Manager;
 
         public Player(int index, WarpplateManager manager)
         {

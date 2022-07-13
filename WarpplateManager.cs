@@ -13,7 +13,7 @@ namespace AdvancedWarpplates
     /// </summary>
     public class WarpplateManager
     {
-        private WarpplateDB Database;
+        private readonly WarpplateDB Database;
         private List<Warpplate> Warpplates = new List<Warpplate>();
 
         public WarpplateManager(IDbConnection db)
