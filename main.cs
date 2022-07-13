@@ -19,15 +19,15 @@ namespace AdvancedWarpplates
 
         public override string Name
         {
-            get { return "Warpplate"; }
+            get { return "AdvancedWarpplates"; }
         }
         public override string Author
         {
-            get { return "Maintained by popstarfreas"; }
+            get { return "DarkunderdoG; Maintained by popstarfreas, Zaicon, bippity, mpql"; }
         }
         public override string Description
         {
-            get { return "Warpplate"; }
+            get { return "AdvancedWarpplates"; }
         }
         public override Version Version
         {
