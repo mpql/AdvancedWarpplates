@@ -91,9 +91,9 @@ Note: `/wpa` and `/wp allow` call the same function, but the former only require
 Near as I can tell, the full source history can be found through the links below.
 If I've left anything or anyone out, or made a mistake, please [submit an issue](https://github.com/mpql/AdvancedWarpplates/issues).
 
-- 2011 - DarkunderdoG [tshock.co](https://tshock.co/xf/index.php?threads/v1-11-advanced-warpplates.379/) | [github.com](https://github.com/Darky2k1/Advanced-Warpplates)
-- 2012 popstarfreas,
-- 2014-2015 Zaicon,
-- 2017-2020 popstarfreas [github.com](https://github.com/popstarfreas/AdvancedWarpplates)
-- 2021 bippity [github.com](https://github.com/bippity/AdvancedWarpplates)
-- 2022 mpql [github.com](https://github.com/mpql/AdvancedWarpplates)
+| Year(s)   | User         | Links
+| --------- | ------------ | -----
+| 2011      | DarkunderdoG | [tshock.co](https://tshock.co/xf/index.php?threads/v1-11-advanced-warpplates.379/) / [github.com](https://github.com/Darky2k1/Advanced-Warpplates)
+| 2012<br>2014–2015<br>2017–2020 | popstarfreas<br>Zaicon<br>popstarfreas | [github.com](https://github.com/popstarfreas/AdvancedWarpplates) |
+| 2021      | bippity      | [github.com](https://github.com/bippity/AdvancedWarpplates)
+| 2022      | mpql         | [github.com](https://github.com/mpql/AdvancedWarpplates)
