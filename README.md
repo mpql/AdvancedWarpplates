@@ -4,8 +4,8 @@
 ## Instructions
 
 1. Download the zip from [releases](https://github.com/mpql/AdvancedWarpplates/releases) and extract the DLL into your TShock's `ServerPlugins` directory.
-2. Start your server and assign permissions using [the list below](#user-permissions).
-3. Put teleporters down in two different spots, and [issue commands](user-commands) while standing on them.
+2. Start your server and assign permissions using [the list below](#permissions).
+3. Put teleporters down in two different spots, and [issue commands](#commands) while standing on them.
 
 
 ### Example
